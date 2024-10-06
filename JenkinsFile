@@ -1,0 +1,42 @@
+// pipeline {
+//     agent any
+
+//     stages {
+//         stage('W/o Docker') {
+//             steps {
+//                 sh '''
+//                     echo "Without Docker"
+//                     ls -la
+//                     touch container-no.txt
+//                     '''
+//             }
+//         }
+//         stage('W/ docker') {
+//             agent{
+//                 docker{
+//                     image 'node:18-alpine'
+//                     reuseNode true
+//                 }
+//             }
+//             steps {
+//                 sh '''
+//                     echo "With Docker"
+//                     ls -la
+//                     touch container-yes.txt
+//                     '''
+//             }
+//         }
+//     }
+// }
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
